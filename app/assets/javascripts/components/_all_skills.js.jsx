@@ -4,7 +4,7 @@ var AllSkills = React.createClass({
   },
 
   componentDidMount() {
-    console.log('Hello from Mount');
+    $.getJSON('/api/v1/skills.json', (response) => { this.setState({ skills: response }) });
   },
 
   render() {
