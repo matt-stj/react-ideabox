@@ -3,17 +3,20 @@ var AllSkills = React.createClass({
     this.props.handleDelete(id);
   },
 
+  handleEdit() {
+    console.log('you are in edit!');
+  },
+
   render() {
     var skills = this.props.skills.map((skill) => {
-    return (
-      <div key={skill.id}>
-        <h3>{skill.name}</h3>
-        <p><strong>Level:</strong> {skill.level}</p>
-        <p>{skill.details}</p>
-        <button onClick={this.handleDelete.bind(this, skill.id)}>Delete</button>
-      </div>
-    )
-  });
+     return (
+       <div key={skill.id}>
+         <Skill skill={skill}
+                handleDelete={this.handleDelete.bind(this, skill.id)}
+                handleEdit={this.handleEdit}/>
+       </div>
+     )
+   });
 
    return(
      <div>
