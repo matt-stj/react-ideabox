@@ -4,24 +4,26 @@ var AllSkills = React.createClass({
   },
 
   handleEdit() {
-    console.log('you are in edit!');
+    var id      = this.props.skill.id;
+    var name    = this.refs.name.value;
+    var details = this.refs.details.value;
+    var level   = this.props.skill.level;
+
+    var skill = {id: id, name: name, details: details, level: level }
   },
 
-  render() {
-    var skills = this.props.skills.map((skill) => {
-     return (
-       <div key={skill.id}>
-         <Skill skill={skill}
-                handleDelete={this.handleDelete.bind(this, skill.id)}
-                handleEdit={this.handleEdit}/>
-       </div>
-     )
-   });
+  handleUpdate(skill) {
+  console.log(skill, 'in handleUpdate');
+},
 
-   return(
-     <div>
-       {skills}
-     </div>
-   )
- }
+render() {
+  return (
+    <div>
+      <NewSkill handleSubmit={this.handleSubmit} />
+      <AllSkills skills={this.state.skills}
+                 handleDelete={this.handleDelete}
+                 onUpdate={this.handleUpdate} />
+    </div>
+  )
+}
 });
