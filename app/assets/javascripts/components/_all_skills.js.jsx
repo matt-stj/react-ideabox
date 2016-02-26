@@ -8,7 +8,10 @@ var AllSkills = React.createClass({
 },
 
 render() {
-    var skills = this.props.skills.map((skill) => {
+    var skills = this.props.skills.sort(function(a, b) {
+      return a.id - b.id;
+      }).map((skill) => {
+
       return (
         <div key={skill.id}>
           <Skill skill={skill}
