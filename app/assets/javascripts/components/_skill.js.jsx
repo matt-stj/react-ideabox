@@ -3,7 +3,21 @@ var Skill = React.createClass({
     return { editable: false }
   },
 
-  onUpdate() {
+  // onUpdate() {
+  //   if (this.state.editable) {
+  //     var id      = this.props.skill.id;
+  //     var name    = this.refs.name.value;
+  //     var details = this.refs.details.value;
+  //     var level   = this.props.skill.level;
+  //
+  //     var skill = {id: id, name: name, details: details, level: level }
+  //
+  //     this.props.handleUpdate(skill);
+  //   }
+  //   this.setState({ editable: !this.state.editable })
+  // },
+
+  handleEdit() {
     if (this.state.editable) {
       var id      = this.props.skill.id;
       var name    = this.refs.name.value;
@@ -12,16 +26,7 @@ var Skill = React.createClass({
 
       var skill = {id: id, name: name, details: details, level: level }
 
-      this.props.handleUpdate(skill);
-    }
-    this.setState({ editable: !this.state.editable })
-  },
-
-  handleEdit() {
-    if (this.state.editable) {
-      var name    = this.refs.name.value;
-      var details = this.refs.details.value;
-      console.log('in handleEdit', this.state.editable, name, details);
+      this.props.handleEdit(skill)
     }
 
     this.setState({ editable: !this.state.editable })

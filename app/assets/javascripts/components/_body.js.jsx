@@ -49,10 +49,6 @@ var Body = React.createClass({
     this.setState({ skills: newSkills });
   },
 
-  handleUpdate(skill) {
-    console.log(skill, 'in handleUpdate');
-  },
-
   render() {
     return (
       <div>
